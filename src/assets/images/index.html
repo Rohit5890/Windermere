@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/bomayepalu/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+      body {
+          margin: 0;
+      }
+  </style>
+</head>
+<body id='test'>
+  <img id="myImageElementInTheDom" src="key.png"/>
+<script id="jsbin-javascript" type="text/javascript">
+var image = new Image();
+image.onload = cutImageUp;
+image.src = 'key.png';
+
+function cutImageUp() {
+    var imagePieces = [],
+        widthOfOnePiece = window.innerWidth,
+        heightOfOnePiece = document.getElementById('myImageElementInTheDom').height,
+        numColsToCut = 1,
+        numRowsToCut=1;
+  
+    for(var x = 0; x < numColsToCut; ++x) {
+        for(var y = 0; y < numRowsToCut; ++y) {
+            var canvas = document.createElement('canvas');
+            canvas.width = widthOfOnePiece;
+            canvas.height = heightOfOnePiece;
+            var context = canvas.getContext('2d');
+            context.drawImage(image, x * widthOfOnePiece, y * heightOfOnePiece, widthOfOnePiece, heightOfOnePiece, 0, 0, canvas.width, canvas.height);
+            imagePieces.push(canvas);
+        }
+    }
+
+    // imagePieces now contains data urls of all the pieces of the image
+
+    // load one piece onto the page
+    var anImageElement = document.getElementById('test');
+
+    //anImageElement.src = imagePieces[0];
+    anImageElement.appendChild(imagePieces[0]);
+}
+setTimeout(cutImageUp(),300)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <title>WINDERMERE</title>
+        <style>
+            .wrapper {   
+                background: #dadad6;
+                overflow: hidden;
+                padding-bottom: 50px; 
+            }
+            .navbar {
+                background: transparent;
+            }
+            .skip-home {
+                color: #404041;
+                text-decoration: underline;
+                font-family: Myriad Pro;
+                float: right;
+                margin-top: 30px;
+                position: relative;
+                z-index: 9;
+            }
+            .no-border {
+                border: none;
+            }
+            .logo-icon {
+                margin-top: -12px;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                opacity: 0; 
+            }
+            #three-container{
+                width: 100vw;
+                height: 320px;
+                margin: 0 auto;
+            }
+            .body-copy {
+                font-weight: 700;
+                padding: 0 28px;
+                text-align: center;
+                opacity: 0;
+            }
+            .swipe-ctrl, .body-copy {
+                font-family: playfairDisplay;
+            }
+            .swipe-ctrl {
+                font-size: 26px;
+                color: #b9a982;
+                text-align: center;
+                position: relative;
+            }
+            .swipe-img {
+                margin-top: 10px;
+                background: url(./assets/images/swipe-action.png);
+                display: block;
+                height: 15px;
+                width: 100%;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                /* -webkit-animation-name: swipeWidth;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-fill-mode: both;
+                -webkit-animation-iteration-count: infinite;
+                /* -webkit-animation-direction: reverse; */
+                /* animation-name: swipeWidth;
+                animation-duration: 3s;
+                animation-fill-mode: both;
+                animation-iteration-count: infinite;
+               // animation-direction: reverse; */ 
+            }
+            .swipe-hand {
+                background: url(./assets/images/swipe-hand.png);
+                width: 50px;
+                height: 50px;
+                display: block;
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                margin-top: -8px;
+                -webkit-animation-name: swipe;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-fill-mode: both;
+                -webkit-animation-iteration-count: infinite;
+                animation-name: swipe;
+                animation-duration: 3s;
+                animation-fill-mode: both;
+                animation-iteration-count: infinite;
+
+            }
+
+            @-webkit-keyframes swipe {
+                from {left: 250px;  opacity: 1;}
+                to  {left: 0px;  opacity: 0;}
+            }
+
+            @keyframes swipe {
+                from {left: 250px;  opacity: 1;}
+                to  {left: 0px;  opacity: 0;}
+            }
+
+            /* @-webkit-keyframes swipeWidth {
+                from {width: 100%; opacity: 1;}
+                to  {width: 0%; opacity: 0;}
+            }
+
+            @keyframes swipeWidth {
+                from {width: 100%; opacity: 1;}
+                to  {width: 0%; opacity: 0;}
+            } */
+            .moment2 {
+                display: none;
+            }
+            .animLeft {
+                -webkit-animation-name: left;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-fill-mode: both;
+                animation-name: left;
+                animation-duration: 3s;
+                animation-fill-mode: both;
+            }
+            @-webkit-keyframes left {
+                from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
+                to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
+            }
+
+            @keyframes left {
+                from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
+                to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper moment1">
+                <nav class="navbar navbar-default no-border">
+                    <div class="container-fluid">
+                            <!-- <button type="button" class="menu-icon no-border">
+                                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>        
+                            </button>
+                            <button type="button" class="logo-icon-wrap no-border">
+                                    <span class="logo-icon" aria-hidden="true"></span>        
+                            </button> -->
+                            <a href="./home.html" class='skip-home'>Skip to home</a>
+                            <img class="logo-icon" src="./assets/images/logo.png" alt='winder logo'/>
+                    </div>
+                </nav>
+                <!-- <div id="test3" class="home1 swipe"></div>
+                <div id="test4" class="home2 swipe"></div>
+                <div class="home-bottom"></div>
+                <div id="test" class='swipe'></div> 
+                <div id="test1" onclick="bindTapEvent(event)"></div> 
+                <div id="test5" class="last-window hide"></div> -->
+                <div id="three-container"></div>
+                <div class="body-copy container-fluid">
+                    <p>A timeless place.  Your first family mansion. 
+                    The vivid evocation of an endless landscape. 
+                    Which the entire family keeps returning to,
+                    for years to come.</p>
+                    <p>At Windermere, homes are for keeps, not for sale.
+                        Come, take a peek into the future with us.
+                    </p>
+                </div>
+                <div class="swipe-ctrl">
+                    <span class="swipe-text">Swipe to begin</span>
+                    <span class="swipe-img"></span>
+                    <span class="swipe-hand"></span>
+                </div>
+        </div>
+        <div class="wrapper moment2">
+                <nav class="navbar navbar-default no-border">
+                    <div class="container-fluid">
+                            <a href="./home.html" class='skip-home'>Skip to home</a>
+                            <img class="logo-icon" src="./assets/images/logo.png" alt='winder logo'/>
+                    </div>
+                </nav>
+                <div id="two-container"></div>
+                <div class="body-copy container-fluid">
+                    <p>A timeless place.  Your first family mansion. 
+                    The vivid evocation of an endless landscape. 
+                    Which the entire family keeps returning to,
+                    for years to come.</p>
+                    <p>At Windermere, homes are for keeps, not for sale.
+                        Come, take a peek into the future with us.
+                    </p>
+                </div>
+                <div class="swipe-ctrl">
+                    <span class="swipe-text">Swipe to begin</span>
+                    <span class="swipe-img"></span>
+                    <span class="swipe-hand"></span>
+                </div>
+        </div>
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+        <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js'></script>
+        <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js'></script>
+        <script src="app.js"></script>
+    </body>
+</html>
