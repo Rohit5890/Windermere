@@ -7,16 +7,20 @@
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <title>WINDERMERE</title>
+
         <style>
+            *:focus {
+                outline: none;
+            }
             .wrapper {   
-                background: #dadad6;
+                background: #e9eae4;
                 overflow: hidden;
-                padding-bottom: 50px; 
+                padding-bottom: 30px; 
             }
             .navbar {
                 background: transparent;
             }
-            .skip-home {
+            .skip-home, .visit-site {
                 color: #404041;
                 text-decoration: underline;
                 font-family: Myriad Pro;
@@ -25,26 +29,63 @@
                 position: relative;
                 z-index: 9;
             }
+            .visit-site {
+                float: left;
+                display: inline-flex;
+            }
+            .map-locator {
+                display: block;
+                background: url('./assets/images/map-locator.png');
+                width: 14px;
+                height: 20px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 5px;
+            }
             .no-border {
                 border: none;
             }
             .logo-icon {
-                margin-top: -12px;
-                display: inline-block;
-                width: 100%;
+                display: block;
+                width: 60%;
                 height: 100%;
-                opacity: 0; 
+                margin: 40px auto 0;
+                position: relative;
+                bottom: 12px;
             }
-            #three-container{
+            /* #three-container{
                 width: 100vw;
                 height: 320px;
                 margin: 0 auto;
+            } */
+            .seed-img {
+                width: 100%;
+                padding: 0 10px;
+            }
+            .head-wrap {
+                font-family: myriad-pro;
+                text-align: center;
+                color: #825e11;
+                font-size: 28px;
+                margin-top: 2px; 
+            }
+            .year {
+                color: #404041;
+                text-align: center;
+                display: block;
+            }
+            .name {
+                text-decoration: underline;
             }
             .body-copy {
-                font-weight: 700;
+                font-weight: normal;
                 padding: 0 28px;
                 text-align: center;
-                opacity: 0;
+                margin-top: 5px;
+                font-style: italic;
+            }
+            .body-copy b {
+                margin-top: 10px;
             }
             .swipe-ctrl, .body-copy {
                 font-family: playfairDisplay;
@@ -55,7 +96,7 @@
                 text-align: center;
                 position: relative;
             }
-            .swipe-img {
+            /* .swipe-img {
                 margin-top: 10px;
                 background: url(./assets/images/swipe-action.png);
                 display: block;
@@ -74,8 +115,8 @@
                 animation-fill-mode: both;
                 animation-iteration-count: infinite;
                // animation-direction: reverse; */ 
-            }
-            .swipe-hand {
+            } */
+            /* .swipe-hand {
                 background: url(./assets/images/swipe-hand.png);
                 width: 50px;
                 height: 50px;
@@ -92,30 +133,31 @@
                 animation-duration: 3s;
                 animation-fill-mode: both;
                 animation-iteration-count: infinite;
-
-            }
-
+            
+            } */
+            
             @-webkit-keyframes swipe {
                 from {left: 250px;  opacity: 1;}
                 to  {left: 0px;  opacity: 0;}
             }
-
+            
             @keyframes swipe {
                 from {left: 250px;  opacity: 1;}
                 to  {left: 0px;  opacity: 0;}
             }
-
+            
             /* @-webkit-keyframes swipeWidth {
                 from {width: 100%; opacity: 1;}
                 to  {width: 0%; opacity: 0;}
             }
-
+            
             @keyframes swipeWidth {
                 from {width: 100%; opacity: 1;}
                 to  {width: 0%; opacity: 0;}
             } */
-            .moment2 {
-                display: none;
+            .slider-item {
+                display: block;
+                float: left;
             }
             .animLeft {
                 -webkit-animation-name: left;
@@ -129,77 +171,285 @@
                 from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
                 to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
             }
-
+            
             @keyframes left {
                 from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
                 to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
             }
-        </style>
+            </style>
+
     </head>
     <body>
-        <div class="wrapper moment1">
-                <nav class="navbar navbar-default no-border">
-                    <div class="container-fluid">
-                            <!-- <button type="button" class="menu-icon no-border">
-                                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>        
-                            </button>
-                            <button type="button" class="logo-icon-wrap no-border">
-                                    <span class="logo-icon" aria-hidden="true"></span>        
-                            </button> -->
-                            <a href="./home.html" class='skip-home'>Skip to home</a>
-                            <img class="logo-icon" src="./assets/images/logo.png" alt='winder logo'/>
-                    </div>
-                </nav>
-                <!-- <div id="test3" class="home1 swipe"></div>
-                <div id="test4" class="home2 swipe"></div>
-                <div class="home-bottom"></div>
-                <div id="test" class='swipe'></div> 
-                <div id="test1" onclick="bindTapEvent(event)"></div> 
-                <div id="test5" class="last-window hide"></div> -->
-                <div id="three-container"></div>
-                <div class="body-copy container-fluid">
-                    <p>A timeless place.  Your first family mansion. 
-                    The vivid evocation of an endless landscape. 
-                    Which the entire family keeps returning to,
-                    for years to come.</p>
-                    <p>At Windermere, homes are for keeps, not for sale.
-                        Come, take a peek into the future with us.
-                    </p>
-                </div>
-                <div class="swipe-ctrl">
-                    <span class="swipe-text">Swipe to begin</span>
-                    <span class="swipe-img"></span>
-                    <span class="swipe-hand"></span>
-                </div>
-        </div>
-        <div class="wrapper moment2">
-                <nav class="navbar navbar-default no-border">
-                    <div class="container-fluid">
-                            <a href="./home.html" class='skip-home'>Skip to home</a>
-                            <img class="logo-icon" src="./assets/images/logo.png" alt='winder logo'/>
-                    </div>
-                </nav>
-                <div id="two-container"></div>
-                <div class="body-copy container-fluid">
-                    <p>A timeless place.  Your first family mansion. 
-                    The vivid evocation of an endless landscape. 
-                    Which the entire family keeps returning to,
-                    for years to come.</p>
-                    <p>At Windermere, homes are for keeps, not for sale.
-                        Come, take a peek into the future with us.
-                    </p>
-                </div>
-                <div class="swipe-ctrl">
-                    <span class="swipe-text">Swipe to begin</span>
-                    <span class="swipe-img"></span>
-                    <span class="swipe-hand"></span>
-                </div>
-        </div>
+            <div class="wrapper moment1">
+                    <nav class="navbar navbar-default no-border">
+                        <div class="container-fluid">
+                                <!-- <button type="button" class="menu-icon no-border">
+                                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>        
+                                </button>
+                                <button type="button" class="logo-icon-wrap no-border">
+                                        <span class="logo-icon" aria-hidden="true"></span>        
+                                </button> -->
+                                <a href="./home.html" class='visit-site'><span class='map-locator'></span>Visit Site</a>
+                                <a href="./home.html" class='skip-home'>Skip to home</a>
+                                <img class="logo-icon" src="./assets/images/logo.png" alt='winder logo'/>
+                        </div>
+                    </nav>
+                    <!-- <div id="test3" class="home1 swipe"></div>
+                    <div id="test4" class="home2 swipe"></div>
+                    <div class="home-bottom"></div>
+                    <div id="test" class='swipe'></div> 
+                    <div id="test1" onclick="bindTapEvent(event)"></div> 
+                    <div id="test5" class="last-window hide"></div> -->
+                    <!-- <div id="three-container"></div> -->
+                    <section class='slider'>
+                        <div class='slider-item'>
+                            <div class='col-sm-12'>
+                                <!-- <video width="100%" height="200px" controls>
+                                    <source src="./assets/videos/sample.mp4" type="video/mp4">
+                                    <source src="./assets/videos/sample.ogg" type="video/ogg">
+                                    Your browser does not support HTML5 video.
+                                    </video> -->
+                                <img class="seed-img" src="./assets/images/seed.jpg" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                    <h3 class='head-wrap col-sm-12'>
+                                        Welcome to your Heritage, <span class='name'>MR. Sharma</span>
+                                    </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Journey with us, to the next 50 years.
+                                    Where the seed of today’s work yields your future.
+                                    Some opportune decisions,
+                                    yields your stature.
+                                    There, you’re not just
+                                    a man of success.
+                                    But a man of vision,
+                                    who started the family crest.
+                                </p>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">swipe to reveal the secret</span>
+                                <!-- <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span> -->
+                            </div>
+                        </div>
+                        <div class='slider-item'>
+                            
+                            <div class='col-sm-12'>
+                                <img class="seed-img" src="./assets/images/gate.png" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                <b class='year'>2018</b>
+                                <h3 class='head-wrap col-sm-12'>
+                                    2018 The Beginning
+                                </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Beyond this gate, your folklores galore.
+                                    Your timely conviction created a timeless abode.
+                                    The first family mansion and the only one to behold.
+                                    The epicenter of the family tree, to grow and be old.
+                                </p>
+                                <b> Windermere- it’s not just a home, it’s an inheritance.</b>
+                            </div>
+                            <div class="swipe-ctrl">
+                                    <span class="swipe-text">swipe to reveal the memories</span>
+                            </div>
+                        </div>      
+                        <div class='slider-item'>
+                            <div class='col-sm-12'>
+                                <img class="seed-img" src="./assets/images/lamp.png" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                <b class='year'>2036</b>
+                                <h3 class='head-wrap col-sm-12'>
+                                    Creation of Memories
+                                </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Now you are entitled, now you have arrived.
+                                    With sweeping landspaces, and amenities that trive.
+                                    The countless wishes which always come true.
+                                    Be it your dream or the ones your children drew
+                                    Or for the family pet which we let you brew
+                                </p>
+                                <b>Now you begin reminiscing, the making of this genesis.</b>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">Swipe to reveal your legacy</span>
+                                <!-- <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span> -->
+                            </div>
+                        </div>
+                        <div class='slider-item'>
+                            <div class='col-sm-12'>
+                                <img class="seed-img" src="./assets/images/stairs.png" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                <b class='year'>2055</b>
+                                <h3 class='head-wrap col-sm-12'>
+                                    Fruition of a Legacy
+                                </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>There are gleeful faces, feeling the same fondness
+                                    Reappearing memories, occasions and countless.
+                                    Euphoric at every moment, having seeded this oneness.
+                                </p>
+                                <b> For what you value is your children and their children's togetherness.</b>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">Swipe to reveal heritage</span>
+                                <!-- <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span> -->
+                            </div>
+                        </div>
 
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+                        <!-- <div class='slider-item'>
+                            <div class='col-sm-12'>
+                                <img class="seed-img" src="./assets/images/lamp.png" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                <b class='year'>2036</b>
+                                <h3 class='head-wrap col-sm-12'>
+                                    Creation of Memories
+                                </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Now you are entitled, your folklores galore
+                                    Your timely conviction created a timeless abode
+                                    The first family mansion and the only one to behold
+                                    The epicenter of the family tree, to grow and be old
+                                    Windermere- it’s not just a home, it’s an inheritance.
+                                </p>
+                                <b> Windermere- it’s not just a home, it’s an inheritance.</b>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">Swipe to begin</span>
+                                <!-- <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span> -->
+                        <!-- </div>
+                        </div> -->
+                        <div class='slider-item'>
+                            <div class='col-sm-12'>
+                                <img class="seed-img" src="./assets/images/tree.png" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                <b class='year'>2081</b>
+                                <h3 class='head-wrap col-sm-12'>
+                                    Dawn of a Heritage
+                                </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Time moves on traditions carry on.
+                                    Your name is held high,
+                                    a culture is  sworn.
+                                    While you leave behind, a triumphant heritage home.
+
+                                </p>
+                                <b>it can start off as a house for a family. But ultimately, it's a family home for generations which will be your own. </b>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">Explore Windermere</span>
+                                <!-- <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span> -->
+                            </div>
+                        </div>
+
+                        <div class='slider-item'  id='last'>
+                            <div class='col-sm-12'>
+                                <img class="seed-img" src="./assets/images/logo-full.png" alt='seed image'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                <h3 class='head-wrap col-sm-12'>
+                                    it's not just home,
+                                    it's a Inheritance.
+                                </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Now that  you've seen what your future holds,let us take  you to Windermere, where your legacy grows.
+                                </p>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">tap to continue</span>
+                                <!-- <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span> -->
+                            </div>
+                        </div>
+                        
+                        <!-- <div class='slider-item'>
+                            <div class='slide-icon-wrap'>
+                                <img class="slide-icon" src='./assets/images/.png' alt='cctv icon'/>
+                            </div>
+                            <div class='section-head-wrap'>
+                                    <h3 class='head-wrap col-sm-12'>
+                                        2018 The Beginning
+                                    </h3>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Beyond this gate, your folklores galore
+                                    Your timely conviction created a timeless abode
+                                    The first family mansion and the only one to behold
+                                    The epicenter of the family tree, to grow and be old
+                                    Windermere- it’s not just a home, it’s an inheritance.
+                                </p>
+                            </div>
+                            <div class='slide-images-wrap'>
+                                <div class='slide-img-left-wrap'>
+                                    <img class='slide-img-left' src='./assets/images/.png' alt='slide image left'/>
+                                    <p class='left-img-desc'>fjekflaflkjeflkjeklj</p>
+                                </div>
+                                <div class='slide-img-right-wrap'>
+                                    <img class='slide-img-right' src='./assets/images/.png' alt='slide image right  '/>
+                                    <p class='right-img-desc'>fjekflaflkjeflkjeklj</p>
+                                </div>
+                            </div>
+                            <ul class='slide-security-list'>
+                                <li><p>multiple security checks</p></li>
+                                <li><p>multiple security checks</p></li>
+                            </ul>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">Swipe to begin</span>
+                                <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span>
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <div class='slider-item'>
+                            <div class='section-head-wrap'>
+                                    <h3 class='head-wrap col-sm-12'>
+                                        2018 The Beginning
+                                    </h3>
+                            </div>
+                            <div class='col-sm-12'>
+                                <video width="100%" height="200px" controls>
+                                    <source src="./assets/videos/sample.mp4" type="video/mp4">
+                                    <source src="./assets/videos/sample.ogg" type="video/ogg">
+                                    Your browser does not support HTML5 video.
+                                    </video>
+                            </div>
+                            <div class="body-copy container-fluid">
+                                <p>Beyond this gate, your folklores galore
+                                    Your timely conviction created a timeless abode
+                                    The first family mansion and the only one to behold
+                                    The epicenter of the family tree, to grow and be old
+                                    Windermere- it’s not just a home, it’s an inheritance.
+                                </p>
+                            </div>
+                            <div class="swipe-ctrl">
+                                <span class="swipe-text">Swipe to begin</span>
+                                <span class="swipe-img"></span>
+                                <span class="swipe-hand"></span>
+                            </div>
+                        </div> -->
+                    </section>
+            </div>
+        <!-- <div></div> -->
+        <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js'></script>
-        <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js'></script>
+        <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js'></script> -->
+        <script src='./vendor/jquery/jq1.8.3.js'></script>
+        <script src='./vendor/slick-slider/slick.min.js'></script>
         <script src="app.js"></script>
     </body>
 </html>

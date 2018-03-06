@@ -8,65 +8,75 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <title>WINDERMERE</title>
         <style>
-            .wrapper {   
-                background: #eaeae5;
+             .wrapper {   
+                background: #dadad6;
                 overflow: hidden;
-                padding-bottom: 50px; 
-                padding-top: 30px;
             }
             .navbar {
-                background: transparent;
+                background: #e9eae4;
+                position: fixed;
+                z-index: 9;
+                right: 0;
+                left: 0;
+                padding-bottom: 15px;
+                margin-bottom: 0;
             }
-            .skip-home {
+            .vascon-link, .visit-site {
                 color: #404041;
                 text-decoration: underline;
                 font-family: Myriad Pro;
                 float: right;
                 margin-top: 30px;
+                display: inline-flex;
             }
-            .container-fluid {
-                text-align: center
+            .visit-site {
+                float: left;
+            }
+            .map-locator, .vascon-icon {
+                display: block;
+                background: url('./assets/images/map-locator.png');
+                width: 14px;
+                height: 20px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 5px;
+            }
+            .vascon-icon {
+                background: url('./assets/images/vascon.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                display: inline-block;
+                height: 21px;
+                width: 20px;
             }
             .no-border {
                 border: none;
             }
             .logo-icon {
-                margin-top: -8px;
+                margin-top: 12px;
                 display: inline-block;
-                width: 57px;
-                height: 50px;
+                width: 107px;
+                height: 44px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
-            .menu {
-                width: 30px;
-                height: 16px;
-                background: transparent url('./assets/images/menu-ham.png');
-                margin: 0;
-                padding: 0;
-                background-size: contain;
-                background-repeat: no-repeat;
-                float: left;
-            }
-            #three-container{
+            /* #three-container{
+                width: 100vw;
+                height: 320px;
+                margin: 0 auto;
+            } */
+            .section-head-wrap{
                 width: 100%;
-                height: 350px;
-                margin: 0 auto;
-                background: url('./assets/images/gate.png');
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-                font-family: playfairDisplay;
-                color: #b9a982;
-                font-size: 26px;
+                height: 100vh;
             }
-            #three-container span {
-                width: 200px;
-                display: block;
-                margin: 0 auto;
-                text-align: center
-            }
-            .body-copy {
-                font-weight: 700;
-                padding: 0 28px;
+            .section-head-wrap h3{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
                 text-align: center;
+                color: #fff;
+                font-family: myriad-pro;
             }
             .swipe-ctrl, .body-copy {
                 font-family: playfairDisplay;
@@ -114,31 +124,80 @@
                 animation-duration: 3s;
                 animation-fill-mode: both;
                 animation-iteration-count: infinite;
-
+            
             }
-
+            
             @-webkit-keyframes swipe {
                 from {left: 250px;  opacity: 1;}
                 to  {left: 0px;  opacity: 0;}
             }
-
+            
             @keyframes swipe {
                 from {left: 250px;  opacity: 1;}
                 to  {left: 0px;  opacity: 0;}
             }
-            .location-link {
-                text-align: center;
-                font-family: playfairDisplay;
-                font-size: 18px;
+            
+            /* @-webkit-keyframes swipeWidth {
+                from {width: 100%; opacity: 1;}
+                to  {width: 0%; opacity: 0;}
             }
-            .location-link a {
-                color: #8c8c8a;
-                text-decoration: underline;
+            
+            @keyframes swipeWidth {
+                from {width: 100%; opacity: 1;}
+                to  {width: 0%; opacity: 0;}
+            } */
+            .slider-item {
+                display: block;
+                float: left;
+                height: 100vh;
+                background: red;
+                overflow: hidden;
+            }
+            .pond {
+                background: url('./assets/images/pond.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .sun {
+                background: url('./assets/images/sun.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .road {
+                background: url('./assets/images/road.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .decoration {
+                background: url('./assets/images/ribbon.png');
+                display: block;
+                width: 100%;
+                height: 8px;
+                margin-top: 10px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .animLeft {
+                -webkit-animation-name: left;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-fill-mode: both;
+                animation-name: left;
+                animation-duration: 3s;
+                animation-fill-mode: both;
+            }
+            @-webkit-keyframes left {
+                from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
+                to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
+            }
+            
+            @keyframes left {
+                from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
+                to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
             }
         </style>
     </head>
     <body>
-        <div class="wrapper">
+        <!-- <div class="wrapper">
                 <nav class="navbar navbar-default no-border">
                     <div class="container-fluid">
                             <button class='menu no-border'></button>
@@ -147,7 +206,7 @@
                 </nav>
                 <div id="three-container">
                     <!-- //<img src='./assets/home/gate.png' alt='gate'/> may be three transition-->
-                    <span>Welcome to Windermere</span>
+                    <!--<span>Welcome to Windermere</span>
                 </div>
                 <div class="body-copy container-fluid">
                     <p>A timeless place.  Your first family mansion. 
@@ -166,6 +225,57 @@
                     <span class="swipe-img"></span>
                     <span class="swipe-hand"></span>
                 </div>
+        </div> -->
+        
+        <div class="wrapper moment1">
+            <nav class="navbar navbar-default no-border">
+                <div class="container-fluid">
+                        <!-- <button type="button" class="menu-icon no-border">
+                                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>        
+                        </button>
+                        <button type="button" class="logo-icon-wrap no-border">
+                                <span class="logo-icon" aria-hidden="true"></span>        
+                        </button> -->
+                        <a href="./home.html" class='visit-site'><span class='map-locator'></span>Visit Site</a>
+                        <img class="logo-icon" src="./assets/images/home-logo.png" alt='winder logo'/>
+                        <a href="./vascon.html" class='vascon-link'><span class='vascon-icon'></span>Vascon</a>
+                        
+                </div>
+            </nav>
+                <!-- <div id="test3" class="home1 swipe"></div>
+                <div id="test4" class="home2 swipe"></div>
+                <div class="home-bottom"></div>
+                <div id="test" class='swipe'></div> 
+                <div id="test1" onclick="bindTapEvent(event)"></div> 
+                <div id="test5" class="last-window hide"></div> -->
+                <!-- <div id="three-container"></div> -->
+                <section class='slider'>
+                    <div class='slider-item road'>
+                        <div class='section-head-wrap'>
+                                <h3 class='head-wrap col-sm-12'>
+                                    80% open spaces with unbroken views in all directions
+                                    <span class='decoration'></span>
+                                </h3>
+                                
+                        </div>
+                    </div>
+                    <div class='slider-item sun'>
+                        <div class='section-head-wrap'>
+                            <h3 class='head-wrap col-sm-12'>
+                                Set in a huge 5 acre plot the largestof any  project in the neighbourhood
+                                <span class='decoration'></span>
+                            </h3>
+                        </div>
+                    </div> 
+                    <div class='slider-item pond'>
+                        <div class='section-head-wrap'>
+                                <h3 class='head-wrap col-sm-12'>
+                                    Locate in the heart of Koregaon Park, the favourite neighbourhood of Pune's elite
+                                    <span class='decoration'></span>
+                                </h3>
+                        </div>
+                    </div>      
+                </section>
         </div>
 
         <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
@@ -173,5 +283,8 @@
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js'></script>
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/OrbitControls-2.js'></script>
         <script src="app.js"></script> -->
+        <script src='./vendor/jquery/jq1.8.3.js'></script>
+        <script src='./vendor/slick-slider/slick.min.js'></script>
+        <script src="app.js"></script>
     </body>
 </html>

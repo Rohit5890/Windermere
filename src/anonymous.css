@@ -1,0 +1,128 @@
+<style>
+.wrapper {   
+    background: #dadad6;
+    overflow: hidden;
+    padding-bottom: 50px; 
+}
+.navbar {
+    background: transparent;
+}
+.skip-home {
+    color: #404041;
+    text-decoration: underline;
+    font-family: Myriad Pro;
+    float: right;
+    margin-top: 30px;
+    position: relative;
+    z-index: 9;
+}
+.no-border {
+    border: none;
+}
+.logo-icon {
+    margin-top: -12px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+}
+#three-container{
+    width: 100vw;
+    height: 320px;
+    margin: 0 auto;
+}
+.body-copy {
+    font-weight: 700;
+    padding: 0 28px;
+    text-align: center;
+    opacity: 0;
+}
+.swipe-ctrl, .body-copy {
+    font-family: playfairDisplay;
+}
+.swipe-ctrl {
+    font-size: 26px;
+    color: #b9a982;
+    text-align: center;
+    position: relative;
+}
+.swipe-img {
+    margin-top: 10px;
+    background: url(./assets/images/swipe-action.png);
+    display: block;
+    height: 15px;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* -webkit-animation-name: swipeWidth;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    /* -webkit-animation-direction: reverse; */
+    /* animation-name: swipeWidth;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+   // animation-direction: reverse; */ 
+}
+.swipe-hand {
+    background: url(./assets/images/swipe-hand.png);
+    width: 50px;
+    height: 50px;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: -8px;
+    -webkit-animation-name: swipe;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: swipe;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+
+}
+
+@-webkit-keyframes swipe {
+    from {left: 250px;  opacity: 1;}
+    to  {left: 0px;  opacity: 0;}
+}
+
+@keyframes swipe {
+    from {left: 250px;  opacity: 1;}
+    to  {left: 0px;  opacity: 0;}
+}
+
+/* @-webkit-keyframes swipeWidth {
+    from {width: 100%; opacity: 1;}
+    to  {width: 0%; opacity: 0;}
+}
+
+@keyframes swipeWidth {
+    from {width: 100%; opacity: 1;}
+    to  {width: 0%; opacity: 0;}
+} */
+.moment2 {
+    display: none;
+}
+.animLeft {
+    -webkit-animation-name: left;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-name: left;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes left {
+    from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
+    to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
+}
+
+@keyframes left {
+    from {left: 0px; -webkit-transform: rotate(0deg); opacity: 1;}
+    to  {left: -1200px; -webkit-transform: rotate(-40deg); opacity: 0;}
+}
+</style>
